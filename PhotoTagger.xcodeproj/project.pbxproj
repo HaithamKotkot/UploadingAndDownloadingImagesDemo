@@ -21,6 +21,8 @@
 		93EF0CAB1BF41DA20051B5B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93EF0CAA1BF41DA20051B5B1 /* Assets.xcassets */; };
 		93EF0CAE1BF41DA20051B5B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93EF0CAC1BF41DA20051B5B1 /* LaunchScreen.storyboard */; };
 		9569363E1E0B06AC00B49A5A /* TagsColorTableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9569363D1E0B06AC00B49A5A /* TagsColorTableData.swift */; };
+		DDD0CC922700AFB000552E4B /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD0CC912700AFB000552E4B /* NetworkClient.swift */; };
+		DDD0CC942700B1D900552E4B /* ImageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD0CC932700B1D900552E4B /* ImageRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		93EF0CAD1BF41DA20051B5B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93EF0CAF1BF41DA20051B5B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9569363D1E0B06AC00B49A5A /* TagsColorTableData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsColorTableData.swift; sourceTree = "<group>"; };
+		DDD0CC912700AFB000552E4B /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		DDD0CC932700B1D900552E4B /* ImageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,8 @@
 				93EF0CAC1BF41DA20051B5B1 /* LaunchScreen.storyboard */,
 				93EF0CA71BF41DA20051B5B1 /* Main.storyboard */,
 				23FF26BD23C3A12E00C3802B /* ImaggaCredentials.swift */,
+				DDD0CC912700AFB000552E4B /* NetworkClient.swift */,
+				DDD0CC932700B1D900552E4B /* ImageRouter.swift */,
 			);
 			path = PhotoTagger;
 			sourceTree = "<group>";
@@ -197,10 +203,12 @@
 				932ED1F71BF9390D0072C1C4 /* PhotoColor.swift in Sources */,
 				932ED1F91BF944590072C1C4 /* TagsColorsViewController.swift in Sources */,
 				23FF26BE23C3A12E00C3802B /* ImaggaCredentials.swift in Sources */,
+				DDD0CC922700AFB000552E4B /* NetworkClient.swift in Sources */,
 				932ED1FB1BF9459E0072C1C4 /* TagsColorsTableViewController.swift in Sources */,
 				23E524BD23BF892500448285 /* UploadImageResponse.swift in Sources */,
 				9569363E1E0B06AC00B49A5A /* TagsColorTableData.swift in Sources */,
 				93EF0CA61BF41DA20051B5B1 /* ViewController.swift in Sources */,
+				DDD0CC942700B1D900552E4B /* ImageRouter.swift in Sources */,
 				93EF0CA41BF41DA20051B5B1 /* AppDelegate.swift in Sources */,
 				23E524B823BF87B700448285 /* PhotoColorsResponse.swift in Sources */,
 				23E524BA23BF889900448285 /* PhotoTagsResponse.swift in Sources */,

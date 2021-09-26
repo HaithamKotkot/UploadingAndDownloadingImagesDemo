@@ -153,9 +153,9 @@ extension ViewController {
       print("Could not get JPEG representation of UIImage")
       return
     }
-    AF.upload(multipartFormData: { multiPartFormData in
+    NetworkClient.upload(multipartFormData: { multiPartFormData in
       multiPartFormData.append(imageData, withName: "image", fileName: "image.jpg", mimeType: "image/jpeg")
-    }, to: "https://api.imagga.com/v2/uploads").authenticate(username: ImaggaCredentials.username, password: ImaggaCredentials.password).validate().uploadProgress { progress in
+    }, with: ImaggaRouter.upload).uploadProgress { progress in
       progressCompletion(Float(progress.fractionCompleted))
     }.responseDecodable(of: UploadImageResponse.self) { response in
       switch response.result {
@@ -175,8 +175,7 @@ extension ViewController {
   }
   
   func downloadTags(contentID: String, completion: @escaping ([String]?) -> Void) {
-    let params = ["image_upload_id": contentID]
-    AF.request("https://api.imagga.com/v2/tags", parameters: params).authenticate(username: ImaggaCredentials.username, password: ImaggaCredentials.password).validate().responseDecodable(of: PhotoTagsResponse.self) { response in
+    NetworkClient.request(ImaggaRouter.tags(contentID)).responseDecodable(of: PhotoTagsResponse.self) { response in
       switch response.result {
       case .failure(let error):
         print("Error while fetching tags: \(String(describing: error))")
@@ -188,8 +187,7 @@ extension ViewController {
   }
   
   func downloadColors(contentID: String, completion: @escaping ([PhotoColor]?) -> Void) {
-    let params = ["image_upload_id": contentID, "extract_obejct_colors": 0] as [String : Any]
-    AF.request("https://api.imagga.com/v2/colors", parameters: params).authenticate(username: ImaggaCredentials.username, password: ImaggaCredentials.password).validate().responseDecodable(of: PhotoColorsResponse.self) { response in
+    NetworkClient.request(ImaggaRouter.colors(contentID)).responseDecodable(of: PhotoColorsResponse.self) { response in
       switch response.result {
       case .failure(let error):
         print("Error while fetching colors: \(String(describing: error))")
