@@ -31,6 +31,17 @@ import Alamofire
 
 struct NetworkClient {
   
+  struct NetworkClientRetrier: RequestInterceptor {
+    func retry(_ request: Request, for session: Session, dueTo error: Error, completion: @escaping (RetryResult) -> Void) {
+      //Check that we got 403 error, which is the error the API returns when we have sent too many requests a second
+      if let response = request.task?.response as? HTTPURLResponse, response.statusCode == 403 {
+        completion(.retryWithDelay(1))
+      } else {
+        completion(.doNotRetryWithError(error))
+      }
+    }
+  }
+  
   struct Certificates {
     
     static let imagga = Certificates.certificate(filename: "imagga.com")
@@ -45,13 +56,16 @@ struct NetworkClient {
   
   static let shared = NetworkClient()
   let session: Session
+  let retrier: NetworkClientRetrier
+  
   let evaluators = [
     "api.imagga.com": PinnedCertificatesTrustEvaluator(certificates: [Certificates.imagga]),
     "upload.wikimedia.org": PinnedCertificatesTrustEvaluator(certificates: [Certificates.wikimedia])
   ]
   
   init() {
-    self.session = Session(serverTrustManager: ServerTrustManager(evaluators: evaluators))
+    retrier = NetworkClientRetrier()
+    self.session = Session(interceptor: retrier, serverTrustManager: ServerTrustManager(evaluators: evaluators))
   }
   
   static func request(_ convertable: URLRequestConvertible) -> DataRequest {
