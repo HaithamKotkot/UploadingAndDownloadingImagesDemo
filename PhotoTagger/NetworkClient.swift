@@ -30,11 +30,28 @@ import Foundation
 import Alamofire
 
 struct NetworkClient {
+  
+  struct Certificates {
+    
+    static let imagga = Certificates.certificate(filename: "imagga.com")
+    static let wikimedia = Certificates.certificate(filename: "wikimedia.org")
+    
+    private static func certificate(filename: String) -> SecCertificate {
+      let filepath = Bundle.main.path(forResource: filename, ofType: "der")!
+      let data = try! Data(contentsOf: URL(fileURLWithPath: filepath))
+      return SecCertificateCreateWithData(nil, data as CFData)!
+    }
+  }
+  
   static let shared = NetworkClient()
   let session: Session
+  let evaluators = [
+    "api.imagga.com": PinnedCertificatesTrustEvaluator(certificates: [Certificates.imagga]),
+    "upload.wikimedia.org": PinnedCertificatesTrustEvaluator(certificates: [])
+  ]
   
   init() {
-    self.session = Session()
+    self.session = Session(serverTrustManager: ServerTrustManager(evaluators: evaluators))
   }
   
   static func request(_ convertable: URLRequestConvertible) -> DataRequest {

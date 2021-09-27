@@ -23,6 +23,8 @@
 		9569363E1E0B06AC00B49A5A /* TagsColorTableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9569363D1E0B06AC00B49A5A /* TagsColorTableData.swift */; };
 		DDD0CC922700AFB000552E4B /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD0CC912700AFB000552E4B /* NetworkClient.swift */; };
 		DDD0CC942700B1D900552E4B /* ImageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD0CC932700B1D900552E4B /* ImageRouter.swift */; };
+		DDD0CC9C2700CE3B00552E4B /* wikimedia.org.der in Resources */ = {isa = PBXBuildFile; fileRef = DDD0CC9A2700CE3B00552E4B /* wikimedia.org.der */; };
+		DDD0CC9D2700CE3B00552E4B /* imagga.com.der in Resources */ = {isa = PBXBuildFile; fileRef = DDD0CC9B2700CE3B00552E4B /* imagga.com.der */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		9569363D1E0B06AC00B49A5A /* TagsColorTableData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsColorTableData.swift; sourceTree = "<group>"; };
 		DDD0CC912700AFB000552E4B /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		DDD0CC932700B1D900552E4B /* ImageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRouter.swift; sourceTree = "<group>"; };
+		DDD0CC9A2700CE3B00552E4B /* wikimedia.org.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = wikimedia.org.der; sourceTree = "<group>"; };
+		DDD0CC9B2700CE3B00552E4B /* imagga.com.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = imagga.com.der; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,7 @@
 		93EF0CA21BF41DA20051B5B1 /* PhotoTagger */ = {
 			isa = PBXGroup;
 			children = (
+				DDD0CC952700C7CE00552E4B /* Certificate */,
 				E1E6544B20447A9C0022172E /* Model */,
 				E1E6544A20447A930022172E /* View Controllers */,
 				93EF0CA31BF41DA20051B5B1 /* AppDelegate.swift */,
@@ -100,6 +105,15 @@
 				DDD0CC932700B1D900552E4B /* ImageRouter.swift */,
 			);
 			path = PhotoTagger;
+			sourceTree = "<group>";
+		};
+		DDD0CC952700C7CE00552E4B /* Certificate */ = {
+			isa = PBXGroup;
+			children = (
+				DDD0CC9B2700CE3B00552E4B /* imagga.com.der */,
+				DDD0CC9A2700CE3B00552E4B /* wikimedia.org.der */,
+			);
+			path = Certificate;
 			sourceTree = "<group>";
 		};
 		E1E6544A20447A930022172E /* View Controllers */ = {
@@ -187,7 +201,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDD0CC9C2700CE3B00552E4B /* wikimedia.org.der in Resources */,
 				93EF0CAE1BF41DA20051B5B1 /* LaunchScreen.storyboard in Resources */,
+				DDD0CC9D2700CE3B00552E4B /* imagga.com.der in Resources */,
 				93EF0CAB1BF41DA20051B5B1 /* Assets.xcassets in Resources */,
 				93EF0CA91BF41DA20051B5B1 /* Main.storyboard in Resources */,
 			);
