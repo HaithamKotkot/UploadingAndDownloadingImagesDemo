@@ -47,7 +47,7 @@ struct NetworkClient {
   let session: Session
   let evaluators = [
     "api.imagga.com": PinnedCertificatesTrustEvaluator(certificates: [Certificates.imagga]),
-    "upload.wikimedia.org": PinnedCertificatesTrustEvaluator(certificates: [])
+    "upload.wikimedia.org": PinnedCertificatesTrustEvaluator(certificates: [Certificates.wikimedia])
   ]
   
   init() {
